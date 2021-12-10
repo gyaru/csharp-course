@@ -72,7 +72,6 @@ namespace calculator
             {
                 ErrorPrint();
             }
-            WriteLine($"DEBUG: {matched.Groups[1].Value}     {matched.Groups[2].Value}        {matched.Groups[3].Value}");
             string operatorToUse = matched.Groups[2].Value;
             int result = operatorToUse switch
             {

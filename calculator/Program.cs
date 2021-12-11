@@ -13,6 +13,7 @@ namespace calculator
             string input = ReadLine();
             LetsDoSomeMath(input);
         }
+        
         private static void AskUser()
         {
             WriteLine("Do you want to do another one?");
@@ -20,15 +21,16 @@ namespace calculator
             if (ReadKey().Key == ConsoleKey.Enter)
             {
                 GetInput(true);
-
             }
             WriteLine("Bye!");
             Environment.Exit(0);
         }
+        
         private static int Multiplication(int firstNumber, int secondNumber)
         {
             return firstNumber * secondNumber;
         }
+        
         private static int Division(int firstNumber, int secondNumber)
         {
             try
@@ -43,19 +45,23 @@ namespace calculator
             }
             return 0;
         }
+        
         private static int Subtraction(int firstNumber, int secondNumber)
         {
             return firstNumber - secondNumber;
         }
+        
         private static int Addition(int firstNumber, int secondNumber)
         {
             return firstNumber + secondNumber;
         }
+        
         private static bool AllowedOperators(string input)
         {
             char[] allowed = { '+', '/', '-', '*', 'x' };
             return input.IndexOfAny(allowed) > -1;
         }
+        
         private static void ErrorPrint()
         {
             WriteLine("Error, did you input it properly? you need to input 2 numbers and an operator.");
@@ -63,6 +69,7 @@ namespace calculator
             WriteLine("3 + 3, 4/5, 3 * 4");
             Main();
         }
+        
         private static void LetsDoSomeMath(string input)
         {
             const string regexPattern = @"(\d+)\s*([\+\*\/\+\-])\s*(\d+)";
@@ -85,7 +92,7 @@ namespace calculator
             WriteLine($"Result: {result}");
             AskUser();
         }
-
+        
         private static void Main()
         {
             WriteLine("Simple Calculator");

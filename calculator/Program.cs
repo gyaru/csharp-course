@@ -26,16 +26,16 @@ namespace calculator
             Environment.Exit(0);
         }
         
-        private static int Multiplication(int firstNumber, int secondNumber)
+        private static float Multiplication(float firstNumber, float secondNumber)
         {
             return firstNumber * secondNumber;
         }
         
-        private static int Division(int firstNumber, int secondNumber)
+        private static float Division(float firstNumber, float secondNumber)
         {
             try
             {
-                int value = firstNumber / secondNumber;
+                float value = firstNumber / secondNumber;
                 return value;
             }
             catch (DivideByZeroException)
@@ -46,12 +46,12 @@ namespace calculator
             return 0;
         }
         
-        private static int Subtraction(int firstNumber, int secondNumber)
+        private static float Subtraction(float firstNumber, float secondNumber)
         {
             return firstNumber - secondNumber;
         }
         
-        private static int Addition(int firstNumber, int secondNumber)
+        private static float Addition(float firstNumber, float secondNumber)
         {
             return firstNumber + secondNumber;
         }
@@ -75,12 +75,14 @@ namespace calculator
             const string regexPattern = @"(\d+)\s*([\+\*\/\+\-])\s*(\d+)";
             Match matched = Regex.Match(input, regexPattern);
             // simple error check
-            if (matched.Groups.Count < 4 | !int.TryParse(matched.Groups[1].Value, out int firstNumber) | !int.TryParse(matched.Groups[1].Value, out int secondNumber) | !AllowedOperators(matched.Groups[2].Value))
+            if (matched.Groups.Count < 4 | !float.TryParse(matched.Groups[1].Value, out float firstNumber) |
+                !float.TryParse(matched.Groups[1].Value, out float secondNumber) |
+                !AllowedOperators(matched.Groups[2].Value))
             {
                 ErrorPrint();
             }
             string operatorToUse = matched.Groups[2].Value;
-            int result = operatorToUse switch
+            float result = operatorToUse switch
             {
                 "/" => Division(firstNumber, secondNumber),
                 "+" => Addition(firstNumber, secondNumber),

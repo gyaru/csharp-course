@@ -132,7 +132,7 @@ namespace Hangman
             StringBuilder correctChars =  new ("");
             StringBuilder incorrectChars = new ("");
             StringBuilder totalChars  = new ("");
-            WriteLine("CHEATING, WORD IS: " + word);
+            // WriteLine("CHEATING, WORD IS: " + word);
             while (amount < 10)
             {
                 string guess = ReadLine();

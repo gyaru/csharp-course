@@ -1,5 +1,6 @@
 # ide
 .idea
+*.DotSettings.user
 # build
 [Dd]ebug/
 [Rr]elease/

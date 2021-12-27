@@ -4,7 +4,7 @@ using static System.Console;
 
 namespace calculator
 {
-    internal static class Program
+    public static class Calculator
     {
         private static void GetInput(bool clearBefore)
         {
@@ -26,12 +26,12 @@ namespace calculator
             Environment.Exit(0);
         }
         
-        private static float Multiplication(float firstNumber, float secondNumber)
+        public static float Multiplication(float firstNumber, float secondNumber)
         {
             return firstNumber * secondNumber;
         }
         
-        private static float Division(float firstNumber, float secondNumber)
+        public static float Division(float firstNumber, float secondNumber)
         {
             try
             {
@@ -46,14 +46,34 @@ namespace calculator
             return 0;
         }
         
-        private static float Subtraction(float firstNumber, float secondNumber)
+        public static float Subtraction(float firstNumber, float secondNumber)
         {
             return firstNumber - secondNumber;
         }
         
-        private static float Addition(float firstNumber, float secondNumber)
+        public static float Subtraction(float[] numbers)
+        {
+            float sum = 0;
+            foreach (float t in numbers)
+            {
+                sum -= t;
+            }
+            return sum;
+        }
+
+        public static float Addition(float firstNumber, float secondNumber)
         {
             return firstNumber + secondNumber;
+        }
+        
+        public static float Addition(float[] numbers)
+        {
+            float sum = 0;
+            foreach (float t in numbers)
+            {
+                sum += t;
+            }
+            return sum;
         }
         
         private static bool AllowedOperators(string input)

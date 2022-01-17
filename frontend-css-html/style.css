@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+body {
+    width: 1024px;
+    margin: auto;
+    border-inline: 1px solid black;
+}
+
+header {
+    display: flex;
+    background: #0C1E7F;
+    justify-content: space-between;
+    height: 60px;
+}
+
+#logo>h1 {
+    background: #0C1E7F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    color: #FF008E;
+    width: 200px;
+}
+
+header>h1 {
+    background: #0C1E7F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    color: #FF008E;
+    width: 200px;
+}
+
+#navigation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navigation>a {
+    text-align: center;
+    background: #612897;
+    width: 150px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    /* filthy hack to vertically center this */
+    /* would not be needed if the a was in it's own div */
+    /* but i'm sticking with not changing anything in the html */
+    padding: 20px 0;
+}
+
+#navigation>ul {
+    width: 550px;
+    background: #612897;
+    display: flex;
+    margin-top: unset;
+    color: white;
+    list-style-type: none;
+    padding: unset;
+    height: 100%;
+    margin-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#navigation>ul>a {
+    color: white;
+    text-decoration: none;
+    border-inline: 1px solid #FF008E;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginButton {
+    background: #612897;
+    border-left: 1px solid #FF008E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    width: 300px;
+}
+
+#loginButton>a {
+    color: white;
+    text-decoration: none;
+}
+
+#container {
+    display: flex;
+    align-items: stretch;
+}
+
+#content {
+    padding: 25px;
+}
+
+#login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login>h1 {
+    width: 500px;
+    text-transform: uppercase;
+}
+
+#login>form {
+    display: flex;
+    width: 200px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 25px;
+}
+
+#username {
+    margin: 5px;
+}
+
+#password {
+    margin: 5px;
+}
+
+#mainHeader {
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    width: 260px;
+    text-align: center;
+}
+
+
+#aside > ul > li:nth-child(odd) {
+    color:#0C1E7F;
+}
+
+#aside > ul > li:nth-child(even) {
+    color:#FF008E;
+}
+
+
+
+#article > p:nth-child(3) {
+    font-weight: bold;
+}
+
+#subText {
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 15px;
+}
+
+#articles {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    display: flex;
+}
+
+#article {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+#aside {
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px;
+    font-size: 12px;
+    border-left: 1px solid black;
+}
+
+#aside>ul {
+    padding: 0px 25px 0px 25px;
+    margin: unset;
+}
+
+#aside>h2 {
+    font-size: 15px;
+}
+
+footer {
+    background: #0C1E7F;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 5px;
+}
+
+button#resetButton {
+    border: unset;
+    border-radius: 8px;
+    margin: 5px;
+    border: 2px solid #FF008E;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background: #0C1E7F;
+    font-family: 'Montserrat', sans-serif;
+    color: #FF008E;
+    width: 100%;
+}
+
+button#loginButton {
+    border: unset;
+    border-radius: 8px;
+    margin: 5px;
+    border: 2px solid #FF008E;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background: #0C1E7F;
+    font-family: 'Montserrat', sans-serif;
+    color: #FF008E;
+    width: 100%;
+}

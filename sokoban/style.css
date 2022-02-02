@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    display: grid;
+}
+
+.block {
+    width: 25px;
+    height: 25px;
+    background: #9B4F96;
+    border: solid 1px #3d3131;
+    float: left;
+}
+
+.entity-player {
+    background: #F5A9B8;
+}
+
+.B, .entity-block {
+    background: #D60270;
+}
+
+.entity-block-goal {
+    background: #99f67b;
+}
+
+.W, .tile-wall {
+    background: #0038A8;
+}
+
+.G, .tile-goal {
+    background: #5BCEFA;
+}
+

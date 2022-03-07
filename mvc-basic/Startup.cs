@@ -45,7 +45,7 @@ namespace mvc_basic
                     new {controller = "Game", action = "GuessingGame"});
                 endpoints.MapControllerRoute(
                     "index",
-                    "{controller=Home}/{action=Index}/{id?}"
+                    "{controller=Index}/{action=Index}/{id?}"
                 );
             });
         }

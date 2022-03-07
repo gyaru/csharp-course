@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<header>
+        <div class="logo">
+            <h1>insert cool logo</h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>@Html.ActionLink("Index", "Index", "Index")</li>
+                <li>@Html.ActionLink("Projects", "Projects", "Index")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Index")</li>
+                <li>@Html.ActionLink("About", "About", "Index")</li>
+            </ul>
+        </div>
+</header>
+<div class="content">
+    @RenderBody()
+</div>
+<div class="footer">
+    <footer>
+        <p>&copy;@DateTime.Now.Year Steve Jobs</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<mvc_identity.Models.City>
+
+@{
+    ViewData["Title"] = "Cities";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Cities</h1>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary">Add a new city</button>
+    </a>
+    <table class="table">
+        <tbody>
+        @foreach (City item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CityName
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CityId" title="Edit" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.CityId" title="Delete" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

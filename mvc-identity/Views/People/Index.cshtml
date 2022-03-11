@@ -1,0 +1,51 @@
+﻿@model List<Person>
+@{
+    ViewData["Title"] = "People";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">People</h1>
+    <form asp-action="Search">
+        <input type="text" name="text" id="searchId"/>
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+    <a asp-action="Create" asp-controller="People">Create</a>
+    <table id="peopleTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id#</th>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model != null)
+        {
+            @foreach (Person item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Name</td>
+                    <td>@item.City.CityName </td>
+                    <td>@item.PhoneNumber</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="@Url.Action("Edit", "People", new {id = item.Id})" title="Edit" class="btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                                    Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<mvc_identity.Models.Country>
+
+@{
+    ViewData["Title"] = "Country";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Countries</h1>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary">Add a new country</button>
+    </a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Country item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CountryName
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CountryId" title="Edit" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.CountryId" title="Delete" class="btn btn-danger">Delete></a>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

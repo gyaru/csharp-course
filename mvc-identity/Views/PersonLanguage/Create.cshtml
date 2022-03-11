@@ -1,0 +1,23 @@
+﻿@model PersonLanguage
+
+@{
+    ViewData["Title"] = "Add a language to a person";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Add a language to a person</h1>
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="PersonId" class="control-label">Name</label>
+            <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="LanguageId" class="control-label">Language</label>
+            <select asp-for="LanguageId" class="form-control" asp-items="ViewBag.LanguageId"></select>
+        </div>
+        <input type="submit" value="Create" class="btn btn-success"/>
+    </form>
+    <a asp-action="Index">
+        <button type="button" class="btn btn-primary">Back to list</button>
+    </a>
+</div>

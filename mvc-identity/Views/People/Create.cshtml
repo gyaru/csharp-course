@@ -1,0 +1,36 @@
+﻿@model CreatePersonViewModel
+
+@{
+    ViewData["Title"] = "Add a person";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Create person</h1>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <label asp-for="CurrentCityId"></label>
+        <select class="form-select" asp-for="CurrentCityId">
+            @foreach (City city in Model.Cities)
+            {
+                <option value="@city.CityId">@city.CityName</option>
+            }
+        </select>
+        <span asp-validation-for="CurrentCityId"></span>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-info"/>
+        </div>
+    </form>
+
+    <a asp-action="Index">
+        <button type="button" class="btn btn-primary">Back to list</button>
+    </a>
+</div>

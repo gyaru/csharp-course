@@ -1,0 +1,27 @@
+﻿@model IEnumerable<mvc_identity.Models.Language>
+
+@{
+    ViewData["Title"] = "Languages";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Languages</h1>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary">Add a new language</button>
+    </a>
+    <table class="table">
+        <tbody>
+            @foreach (Language item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.LanguageName
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.LanguageId" title="Delete" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

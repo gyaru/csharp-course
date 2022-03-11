@@ -1,0 +1,31 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Info</h1>
+    <dl>
+        <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentCityId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CurrentCityId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model.Id">
+        <button type="button" class="btn btn-warning">Edit</button>
+    </a>
+    <a asp-action="Index">
+        <button type="button" class="btn btn-primary">Back to list</button>
+    </a>
+</div>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Create a role";
+}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Create a role</h1>
+    <form asp-action="Create" method="post">
+        <label class="form-label">Name:</label>
+        <input class="form-control" type="text" name="name"/>
+        <input type="submit" value="Create"/>
+    </form>
+</div>

@@ -1,51 +1,26 @@
 ﻿@model List<Person>
+@section Scripts
+{
+<script type="text/javascript" src="@Url.Content("~/js/script.js")" xmlns="http://www.w3.org/1999/html"></script>
+}
 @{
     ViewData["Title"] = "People";
 }
-
+<div class="modal fade" id="detailsModal" tabindex="-1" style="display:none">
+</div>
 <div class="px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold">People</h1>
-    <form asp-action="Search">
-        <input type="text" name="text" id="searchId"/>
-        <button type="submit" class="btn btn-info">Search</button>
-    </form>
-    <a asp-action="Create" asp-controller="People">Create</a>
+    <input type="text" name="text" id="searchId"/>
+    <button id="lookUp" type="button" class="btn btn-primary">
+      Lookup
+    </button>
+    <button id="refresh" class="btn btn-info">Refresh</button>
+    <a asp-action="Create" asp-controller="People"><button type="submit" class="btn btn-primary">Create</button></a>
+    <br/>
+    <br/>
     <table id="peopleTable" class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Id#</th>
-            <th scope="col">Name</th>
-            <th scope="col">City</th>
-            <th scope="col">Phone</th>
-        </tr>
-        </thead>
-        <tbody>
-        @if (Model != null)
-        {
-            @foreach (Person item in Model)
-            {
-                <tr>
-                    <th scope="row">@item.Id</th>
-                    <td>@item.Name</td>
-                    <td>@item.City.CityName </td>
-                    <td>@item.PhoneNumber</td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href="@Url.Action("Edit", "People", new {id = item.Id})" title="Edit" class="btn btn-primary">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
-                                    Delete
-                                </a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            }
-        }
-        </tbody>
+        <div id="peopleTableSpinner" class="spinner-border m-5" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </table>
 </div>

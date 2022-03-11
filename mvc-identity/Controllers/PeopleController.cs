@@ -51,10 +51,15 @@ namespace mvc_identity.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult All()
+        {
+            return PartialView(_context.People.Include(c => c.City).Where(c => c.CurrentCityId == c.City.CityId).ToList());
+        }
 
         public IActionResult Details(int id)
         {
-            return View("Details", _context.People.Find(id));
+            return PartialView("Details", _context.People.Find(id));
         }
 
         public async Task<IActionResult> Search(string text)

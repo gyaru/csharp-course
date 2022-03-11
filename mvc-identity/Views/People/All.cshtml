@@ -1,0 +1,38 @@
+﻿@model System.Collections.Generic.List<mvc_identity.Models.Person>
+
+  <thead>
+    <tr>
+        <th scope="col">Id#</th>
+        <th scope="col">Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model != null)
+    {
+        @foreach (Person item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.City.CityName </td>
+                <td>@item.PhoneNumber</td>
+                <td>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="@Url.Action("Edit", "People", new {id = item.Id})" title="Edit" class="btn btn-primary">
+                                Edit
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a onclick="deleteByID(@item.Id)" title="Delete" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>

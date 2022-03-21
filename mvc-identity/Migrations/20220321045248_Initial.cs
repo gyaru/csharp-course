@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace mvc_identity.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -203,6 +203,7 @@ namespace mvc_identity.Migrations
                     Name = table.Column<string>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: false),
                     CurrentCityId = table.Column<int>(nullable: false),
+                    CurrentCountryId = table.Column<int>(nullable: false),
                     Edited = table.Column<DateTime>(nullable: false),
                     Created = table.Column<DateTime>(nullable: false)
                 },
@@ -214,6 +215,12 @@ namespace mvc_identity.Migrations
                         column: x => x.CurrentCityId,
                         principalTable: "Cities",
                         principalColumn: "CityId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_People_Countries_CurrentCountryId",
+                        column: x => x.CurrentCountryId,
+                        principalTable: "Countries",
+                        principalColumn: "CountryId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -246,14 +253,14 @@ namespace mvc_identity.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "6589a357-9dca-4294-8e86-d04875aefbaf", "b77d6622-1abd-4446-9aa7-56ca1df3bc01", "Admin", "ADMIN" },
-                    { "201c55a1-d315-408d-b363-9f011f608189", "db2d90c8-5fc8-4334-91d3-9ab9935a8aae", "User", "USER" }
+                    { "073e08b0-0437-4354-838a-c3a5bdd6e07b", "7fd17868-1b32-4b0e-8b1e-793e8b2a8114", "Admin", "ADMIN" },
+                    { "8e1792d3-47c8-4949-9a92-7f8da552b402", "726207a5-241b-4c39-92e9-82c21c45a1e9", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "BirthDate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "5d7c9de4-f1b9-4cb7-9245-042349d48e38", 0, "1955-02-24", "dc8f1058-44d8-4198-8097-66ba0e2d1dc9", "steve@apple.com", false, "Steve", "Jobs", false, null, "STEVE@APPLE.COM", "steve@apple.com", "AQAAAAEAACcQAAAAEFbCqyQ81n03RtpjgY2M6fAvcOUqseYsZe8IiCISY1dHIwyrETIyAzpV930wVVAQTw==", null, false, "a9e40790-83a6-46ff-ad2c-98005d9bfc81", false, "steve@apple.com" });
+                values: new object[] { "fb3687ed-4040-4590-814d-b6129ea76f50", 0, "1955-02-24", "def51090-b62b-4e3a-b67f-8153e56eb70c", "steve@apple.com", false, "Steve", "Jobs", false, null, "STEVE@APPLE.COM", "steve@apple.com", "AQAAAAEAACcQAAAAEBsJPiELbJ1UNOhkFF6orzzdpit3U7T4awqirMAnVqQgMM/jxcv+gjyJjs63clfGlQ==", null, false, "946be414-dc2c-4361-822e-2afc1bb640c2", false, "steve@apple.com" });
 
             migrationBuilder.InsertData(
                 table: "Cities",
@@ -300,20 +307,20 @@ namespace mvc_identity.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "UserId", "RoleId" },
-                values: new object[] { "5d7c9de4-f1b9-4cb7-9245-042349d48e38", "6589a357-9dca-4294-8e86-d04875aefbaf" });
+                values: new object[] { "fb3687ed-4040-4590-814d-b6129ea76f50", "073e08b0-0437-4354-838a-c3a5bdd6e07b" });
 
             migrationBuilder.InsertData(
                 table: "People",
-                columns: new[] { "Id", "Created", "CurrentCityId", "Edited", "Name", "PhoneNumber" },
+                columns: new[] { "Id", "Created", "CurrentCityId", "CurrentCountryId", "Edited", "Name", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rebecca Pettersson", "0942-4546168" },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valentino Engström", "08-5156261" },
-                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Engla Holmgren", "042-5365682" },
-                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Oliwer Gunnarsson", "0680-3146934" },
-                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Brandon Eriksson", "342345345" },
-                    { 6, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Wilda Lundin", "11231425" },
-                    { 7, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Madicken Lindqvist", "234242534" }
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rebecca Pettersson", "0942-4546168" },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Valentino Engström", "08-5156261" },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Engla Holmgren", "042-5365682" },
+                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Oliwer Gunnarsson", "0680-3146934" },
+                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Brandon Eriksson", "342345345" },
+                    { 6, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Wilda Lundin", "11231425" },
+                    { 7, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Madicken Lindqvist", "234242534" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -361,6 +368,11 @@ namespace mvc_identity.Migrations
                 column: "CurrentCityId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_People_CurrentCountryId",
+                table: "People",
+                column: "CurrentCountryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PersonLanguages_LanguageId",
                 table: "PersonLanguages",
                 column: "LanguageId");
@@ -384,9 +396,6 @@ namespace mvc_identity.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Countries");
-
-            migrationBuilder.DropTable(
                 name: "PersonLanguages");
 
             migrationBuilder.DropTable(
@@ -403,6 +412,9 @@ namespace mvc_identity.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "Countries");
         }
     }
 }

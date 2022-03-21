@@ -26,6 +26,10 @@ namespace mvc_identity
             services.AddMvc();
             services.AddHttpContextAccessor();
             services.AddSession();
+            services.AddCors();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );      
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -52,6 +56,13 @@ namespace mvc_identity
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            // disable cors, we don't really care about it in this project
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials());
+            
             app.UseRouting();
 
             app.UseAuthentication();

@@ -62,12 +62,12 @@ namespace mvc_identity.Data
 
             // add countries
             modelBuilder.Entity<Country>().HasData(new Country {CountryId = 001, CountryName = "Sweden"});
-            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 002, CountryName = "Norway"});
-            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 003, CountryName = "Denmark"});
-            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 004, CountryName = "Finland"});
-            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 005, CountryName = "Spain"});
-            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 006, CountryName = "Portugal"});
-            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 007, CountryName = "Venus"});
+            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 002, CountryName = "United States"});
+            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 003, CountryName = "Germany"});
+            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 004, CountryName = "Spain"});
+            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 005, CountryName = "Italy"});
+            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 006, CountryName = "France"});
+            modelBuilder.Entity<Country>().HasData(new Country {CountryId = 007, CountryName = "Austria"});
 
             // add cities
             modelBuilder.Entity<City>().HasData(new City {CityId = 001, CityName = "Stockholm"});
@@ -80,19 +80,19 @@ namespace mvc_identity.Data
 
             // add people
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 001, Name = "Rebecca Pettersson", PhoneNumber = "0942-4546168", CurrentCityId = 001});
+                {Id = 001, Name = "Rebecca Pettersson", PhoneNumber = "0942-4546168", CurrentCityId = 001, CurrentCountryId = 001});
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 002, Name = "Valentino Engström", PhoneNumber = "08-5156261", CurrentCityId = 002});
+                {Id = 002, Name = "Valentino Engström", PhoneNumber = "08-5156261", CurrentCityId = 002, CurrentCountryId = 002});
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 003, Name = "Engla Holmgren", PhoneNumber = "042-5365682", CurrentCityId = 003});
+                {Id = 003, Name = "Engla Holmgren", PhoneNumber = "042-5365682", CurrentCityId = 003, CurrentCountryId = 003});
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 004, Name = "Oliwer Gunnarsson", PhoneNumber = "0680-3146934", CurrentCityId = 004});
+                {Id = 004, Name = "Oliwer Gunnarsson", PhoneNumber = "0680-3146934", CurrentCityId = 004, CurrentCountryId = 004});
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 005, Name = "Brandon Eriksson", PhoneNumber = "342345345", CurrentCityId = 005});
+                {Id = 005, Name = "Brandon Eriksson", PhoneNumber = "342345345", CurrentCityId = 005, CurrentCountryId = 005});
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 006, Name = "Wilda Lundin", PhoneNumber = "11231425", CurrentCityId = 006});
+                {Id = 006, Name = "Wilda Lundin", PhoneNumber = "11231425", CurrentCityId = 006, CurrentCountryId = 006});
             modelBuilder.Entity<Person>().HasData(new Person
-                {Id = 007, Name = "Madicken Lindqvist", PhoneNumber = "234242534", CurrentCityId = 007});
+                {Id = 007, Name = "Madicken Lindqvist", PhoneNumber = "234242534", CurrentCityId = 007, CurrentCountryId = 007});
 
 
             var hasher = new PasswordHasher<ApplicationUser?>();

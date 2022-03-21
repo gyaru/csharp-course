@@ -13,6 +13,9 @@ namespace mvc_identity.Models
         public string PhoneNumber { get; set; }
         [Required] [ForeignKey("City")] public int CurrentCityId { get; set; }
         public City City { get; set; }
+        
+        [Required] [ForeignKey("Country")] public int CurrentCountryId { get; set; }
+        public Country Country { get; set; }
         public DateTime Edited { get; set; }
         public DateTime Created { get; set; }
     }

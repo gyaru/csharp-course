@@ -12,6 +12,8 @@ namespace mvc_identity.Models.ViewModels
         public string Name { get; set; }
 
         [Required] [Display(Name = "City")] public int CurrentCityId { get; set; }
+        
+        [Display(Name = "Country")] public int CurrentCountryId { get; set; }
 
         public string PhoneNumber { get; set; }
 

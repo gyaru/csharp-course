@@ -10,8 +10,8 @@ using mvc_identity.Data;
 namespace mvc_identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220311071309_initial")]
-    partial class initial
+    [Migration("20220321050003_UpdateNotMapped")]
+    partial class UpdateNotMapped
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace mvc_identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6589a357-9dca-4294-8e86-d04875aefbaf",
-                            ConcurrencyStamp = "b77d6622-1abd-4446-9aa7-56ca1df3bc01",
+                            Id = "0b909a4a-22c7-4b19-aa69-ed4a6d15cd9b",
+                            ConcurrencyStamp = "a5f392aa-3b43-4eda-a3f8-31aa09737c8a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "201c55a1-d315-408d-b363-9f011f608189",
-                            ConcurrencyStamp = "db2d90c8-5fc8-4334-91d3-9ab9935a8aae",
+                            Id = "f016a198-3500-42e3-96d9-d8cb1693d784",
+                            ConcurrencyStamp = "2aba3540-53db-4d72-b98d-59215018f11b",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -151,8 +151,8 @@ namespace mvc_identity.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5d7c9de4-f1b9-4cb7-9245-042349d48e38",
-                            RoleId = "6589a357-9dca-4294-8e86-d04875aefbaf"
+                            UserId = "145d855d-9628-4893-ad15-142ba3df373a",
+                            RoleId = "0b909a4a-22c7-4b19-aa69-ed4a6d15cd9b"
                         });
                 });
 
@@ -254,10 +254,10 @@ namespace mvc_identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5d7c9de4-f1b9-4cb7-9245-042349d48e38",
+                            Id = "145d855d-9628-4893-ad15-142ba3df373a",
                             AccessFailedCount = 0,
                             BirthDate = "1955-02-24",
-                            ConcurrencyStamp = "dc8f1058-44d8-4198-8097-66ba0e2d1dc9",
+                            ConcurrencyStamp = "a86484a0-113e-445d-8ff6-b53d28258461",
                             Email = "steve@apple.com",
                             EmailConfirmed = false,
                             FirstName = "Steve",
@@ -265,9 +265,9 @@ namespace mvc_identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "STEVE@APPLE.COM",
                             NormalizedUserName = "steve@apple.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFbCqyQ81n03RtpjgY2M6fAvcOUqseYsZe8IiCISY1dHIwyrETIyAzpV930wVVAQTw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELNsdjlYTXJ4a2L/JzciK9Mk2HsZX5x4KBIKrY11TMiBLCIK6ibvYShP4XMMFy7fDQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a9e40790-83a6-46ff-ad2c-98005d9bfc81",
+                            SecurityStamp = "acc9b399-b57d-4025-b2d4-5ea47868897c",
                             TwoFactorEnabled = false,
                             UserName = "steve@apple.com"
                         });
@@ -446,6 +446,9 @@ namespace mvc_identity.Migrations
                     b.Property<int>("CurrentCityId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CurrentCountryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Edited")
                         .HasColumnType("datetime2");
 
@@ -461,6 +464,8 @@ namespace mvc_identity.Migrations
 
                     b.HasIndex("CurrentCityId");
 
+                    b.HasIndex("CurrentCountryId");
+
                     b.ToTable("People");
 
                     b.HasData(
@@ -469,6 +474,7 @@ namespace mvc_identity.Migrations
                             Id = 1,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 1,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rebecca Pettersson",
                             PhoneNumber = "0942-4546168"
@@ -478,6 +484,7 @@ namespace mvc_identity.Migrations
                             Id = 2,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 2,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Valentino Engström",
                             PhoneNumber = "08-5156261"
@@ -487,6 +494,7 @@ namespace mvc_identity.Migrations
                             Id = 3,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 3,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Engla Holmgren",
                             PhoneNumber = "042-5365682"
@@ -496,6 +504,7 @@ namespace mvc_identity.Migrations
                             Id = 4,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 4,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Oliwer Gunnarsson",
                             PhoneNumber = "0680-3146934"
@@ -505,6 +514,7 @@ namespace mvc_identity.Migrations
                             Id = 5,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 5,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brandon Eriksson",
                             PhoneNumber = "342345345"
@@ -514,6 +524,7 @@ namespace mvc_identity.Migrations
                             Id = 6,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 6,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Wilda Lundin",
                             PhoneNumber = "11231425"
@@ -523,6 +534,7 @@ namespace mvc_identity.Migrations
                             Id = 7,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CurrentCityId = 7,
+                            CurrentCountryId = 1,
                             Edited = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Madicken Lindqvist",
                             PhoneNumber = "234242534"
@@ -600,6 +612,12 @@ namespace mvc_identity.Migrations
                     b.HasOne("mvc_identity.Models.City", "City")
                         .WithMany("People")
                         .HasForeignKey("CurrentCityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mvc_identity.Models.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CurrentCountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
